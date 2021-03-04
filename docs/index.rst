@@ -9,7 +9,7 @@ Welcome to pydist2's documentation!
    installation guide
    tutorial
    guide
-   API
+   modules
    contributing
    authors
    history
