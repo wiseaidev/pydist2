@@ -61,6 +61,7 @@ test-all: ## run tests on every Python version with tox
 	tox -v
 
 docs: ## generate Sphinx HTML documentation, including API docs
+	rm -f docs/modules.rst	
 	rm -f docs/pydist2.rst
 	sphinx-apidoc -o docs/ pydist2
 	$(MAKE) -C docs clean
