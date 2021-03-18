@@ -33,7 +33,7 @@ Usage
 -----
 .. code-block:: console
 
-   pdist1(P, metric = "euclidean",)
+   pdist1(P, metric = "euclidean", matrix=False)
    pdist2(P, Q, metric = "minkowski", exp = 3)
 
 **Arguments**: 
@@ -47,7 +47,7 @@ Installation
 
 The pydist2 library is available on Pypi_. Thus, you can install the latest available version using *pip*::
 
-   $pip install pydist2==0.0.2
+   $pip install pydist2
 
 Supported Python versions
 -------------------------
