@@ -1071,8 +1071,8 @@ class pdist1(object):
             distance = dist_object().compute(P)
         if matrix is True:
             index = np.array(list(itertools.combinations(np.arange(P.shape[0]), 2)))
-            a = [list(X[i, :]) for i in index[:, 0]]
-            b = [list(X[i, :]) for i in index[:, 1]]
+            a = [list(P[i, :]) for i in index[:, 0]]
+            b = [list(P[i, :]) for i in index[:, 1]]
             distance = np.concatenate((distance.reshape(distance.shape[0], 1), a, b), axis=1)
         return distance
 
