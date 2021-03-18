@@ -19,12 +19,13 @@ test_requirements = ['pytest>=3', ]
 setup(
     author="Mahmoud Harmouch",
     author_email='mahmoudddharmouchhh@gmail.com',
-    python_requires='>=3.8<4',
+    python_requires='>=3.7<4',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
     description="pydist2 is a library that provides a set of methods for calculating distances between observations.",
@@ -42,6 +43,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/Harmouch101/pydist2',
-    version='0.0.1',
+    version='0.0.2',
     zip_safe=False,
 )
