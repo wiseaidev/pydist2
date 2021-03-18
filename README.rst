@@ -47,7 +47,7 @@ Installation
 
 The pydist2 library is available on Pypi_. Thus, you can install the latest available version using *pip*::
 
-   $pip install pydist2
+   $pip install pydist2==0.0.2
 
 Supported Python versions
 -------------------------
