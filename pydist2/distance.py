@@ -21,11 +21,10 @@
 """
 
 from abc import ABC, abstractmethod
-
+import itertools
 import numpy as np
-
-from .custom_typing import NumpyArray, PositiveInteger, String, Void
-
+from custom_typing import NumpyArray, PositiveInteger, String, Void, Bool
+np.set_printoptions(precision=4)
 
 class VectorsDistanceDescriptor(ABC):
     """
@@ -1062,14 +1061,20 @@ class pdist1(object):
         """
         self._metric = value
 
-    def __new__(self, P: NumpyArray, metric: String = "default", exp: PositiveInteger = 2) -> NumpyArray:
-        """Compute the distance between P and Q based on metric."""
+    def __new__(self, P: NumpyArray, metric: String="default", exp: PositiveInteger = 2, matrix: Bool=False) -> NumpyArray:
+        """Compute the pairwise distance for each two elements of P."""
         if metric == 'minkowski':
-            dist_object = Minkowski()
-            return dist_object.compute(P, exp)
+            dist_object = Minkowski
+            distance = dist_object().compute(P, exp)
         else:
             dist_object = self._metric_distance.get(metric, Euclidean)
-            return dist_object().compute(P)
+            distance = dist_object().compute(P)
+        if matrix is True:
+            index = np.array(list(itertools.combinations(np.arange(P.shape[0]), 2)))
+            a = [list(X[i, :]) for i in index[:, 0]]
+            b = [list(X[i, :]) for i in index[:, 1]]
+            distance = np.concatenate((distance.reshape(distance.shape[0], 1), a, b), axis=1)
+        return distance
 
     def __repr__(self) -> String:
         """Custom repr function."""

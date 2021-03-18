@@ -100,3 +100,8 @@ class PositiveInteger(Integer, Positive):
     """A customized Positive Integer data type."""
 
     pass
+
+class Bool(CustomType):
+    """A customized String data type."""
+
+    _type = bool
