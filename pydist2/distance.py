@@ -23,7 +23,7 @@
 from abc import ABC, abstractmethod
 import itertools
 import numpy as np
-from custom_typing import NumpyArray, PositiveInteger, String, Void, Bool
+from .custom_typing import NumpyArray, PositiveInteger, String, Void, Bool
 np.set_printoptions(precision=4)
 
 class VectorsDistanceDescriptor(ABC):
