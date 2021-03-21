@@ -10,4 +10,4 @@ History
 0.0.5 (2021-03-21)
 ------------------
 
-* First release on PyPI.
+* Adding sqeuclidean metric.
