@@ -101,7 +101,8 @@ class PositiveInteger(Integer, Positive):
 
     pass
 
+
 class Bool(CustomType):
-    """A customized String data type."""
+    """A customized Boolean data type."""
 
     _type = bool
