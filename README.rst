@@ -63,7 +63,7 @@ Progress & Features
 
 - [X] Commit the first code's version.
 - [X] Support the following `list of distances`_. 
-- [X] Display the distance in a matrix form(a combination for each pair of points):: console
+- [X] Display the distance in a matrix form(a combination for each pair of points)::
 
    >>> X = np.array([[100, 100],[0, 100],[100, 0], [500, 400], [300, 600]])
    >>> pdist1(X,matrix=True) # by default, metric = 'euclidean'
