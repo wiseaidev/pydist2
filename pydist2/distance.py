@@ -26,6 +26,7 @@ import numpy as np
 from .custom_typing import NumpyArray, PositiveInteger, String, Void, Bool
 np.set_printoptions(precision=4)
 
+
 class VectorsDistanceDescriptor(ABC):
     """
     This descriptor constuct a blueprint for different vectors distance.
@@ -442,12 +443,12 @@ class EarthMoversDistance(VectorsDistanceDescriptor):
         return f"{self.__dict__}"
 
 
-class Euclidean(PairwiseDistanceDescriptor):
-    """Pairwise Euclidean distance."""
+class SQEuclidean(PairwiseDistanceDescriptor):
+    """Pairwise Squared Euclidean distance."""
 
     _metric = String("metric")
 
-    def __init__(self, metric: String = "Pairwise Euclidean Distance") -> Void:
+    def __init__(self, metric: String = "Pairwise Squared Euclidean Distance") -> Void:
         """Return an instance of a Euclidean class."""
         self._metric = metric
 
@@ -473,7 +474,7 @@ class Euclidean(PairwiseDistanceDescriptor):
 
     @classmethod
     def compute(self, P: NumpyArray) -> NumpyArray:
-        """Compute the pairwise distances between each elements of P."""
+        """Compute the Squared Euclidean distances between each elements of P."""
         m, n = P.shape[: 2]
         D = np.zeros((1, int(m * (m - 1) / 2)), dtype=np.float64)
         k = 0
@@ -481,13 +482,26 @@ class Euclidean(PairwiseDistanceDescriptor):
             dsq = np.zeros((m - i - 1, 1), dtype=np.float64)
             for q in range(n):
                 dsq = dsq + (P[i, q] - P[i + 1: m, q]).reshape(-1, 1) ** 2
-            D[0, k: k + m - i - 1] = np.sqrt(dsq).reshape(1, -1)
+            D[0, k: k + m - i - 1] = dsq.reshape(1, -1)
             k += m - i - 1
         return D[0]
 
     def __repr__(self) -> String:
         """Custom repr function."""
         return f"{self.__dict__}"
+
+
+class Euclidean(SQEuclidean):
+    """Pairwise Euclidean distance."""
+
+    def __init__(self, metric: String = "Pairwise Euclidean Distance") -> Void:
+        """Return an instance of a Pairwise Euclidean class."""
+        super().__init__(metric)
+
+    @classmethod
+    def compute(self, P: NumpyArray) -> NumpyArray:
+        """Compute the distance using sqrt(Squared Euclidean Distance)."""
+        return np.sqrt(super().compute(P))
 
 
 class StandardizedEuclidean(PairwiseDistanceDescriptor):
@@ -1029,6 +1043,7 @@ class pdist1(object):
     _metric = String("metric")
     _metric_distance = {'euclidean': Euclidean,
                         'default': Euclidean,
+                        'sqeuclidean': SQEuclidean,
                         'seuclidean': StandardizedEuclidean,
                         'cityblock': CityBlock,
                         'mahalanobis': Mahalanobis,
@@ -1061,7 +1076,7 @@ class pdist1(object):
         """
         self._metric = value
 
-    def __new__(self, P: NumpyArray, metric: String="default", exp: PositiveInteger = 2, matrix: Bool=False) -> NumpyArray:
+    def __new__(self, P: NumpyArray, metric: String = "default", exp: PositiveInteger = 2, matrix: Bool = False) -> NumpyArray:
         """Compute the pairwise distance for each two elements of P."""
         if metric == 'minkowski':
             dist_object = Minkowski
