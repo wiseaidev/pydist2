@@ -58,6 +58,43 @@ For more information, please checkout the documentation which is available at re
 
 This program and the accompanying materials are made available under the terms of the `MIT License`_.
 
+Progress & Features
+-------------------
+
+- [X] Commit the first code's version.
+- [X] Support the following `list of distances`_. 
+- [X] Display the distance in a matrix form(a combination for each pair of points):: console
+
+   >>> X = np.array([[100, 100],[0, 100],[100, 0], [500, 400], [300, 600]])
+   >>> pdist1(X,matrix=True) # by default, metric = 'euclidean'
+   array([[100.    , 100.    , 100.    ,   0.    , 100.    ],
+          [100.    , 100.    , 100.    , 100.    ,   0.    ],
+          [500.    , 100.    , 100.    , 500.    , 400.    ],
+          [538.5165, 100.    , 100.    , 300.    , 600.    ],
+          [141.4214,   0.    , 100.    , 100.    ,   0.    ],
+          [583.0952,   0.    , 100.    , 500.    , 400.    ],
+          [583.0952,   0.    , 100.    , 300.    , 600.    ],
+          [565.6854, 100.    ,   0.    , 500.    , 400.    ],
+          [632.4555, 100.    ,   0.    , 300.    , 600.    ],
+          [282.8427, 500.    , 400.    , 300.    , 600.    ]])
+
+where the first column represents the distance between each pair of observations. for instance, the euclidean distance between (100. , 100.) and ( 0. , 100.) is 100.
+
+- [X] Support numpy arrays of the same size only.
+
+Todo list
+---------
+
+- [ ] Re-validate the correctness of the distances equations.
+- [ ] Performance tests & vectorization.
+- [ ] Adding new distances.
+- [ ] Adding a squared form of the distance.
+- [ ] Support tuples and list.
+- [ ] Write more test cases.
+- [ ] Handling Exceptions.
+- [ ] Restructure the docs.
+
 .. _MIT License: https://opensource.org/licenses/MIT
 .. _Pypi: https://pypi.org/project/pydist2/
 .. _readthedocs: https://pydist2.readthedocs.io
+.. _list of distances: https://pydist2.readthedocs.io/en/latest/guide.html
