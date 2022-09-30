@@ -6,8 +6,8 @@ pydist2
 .. image:: https://img.shields.io/pypi/v/pydist2.svg
         :target: https://pypi.python.org/pypi/pydist2
 
-.. image:: https://img.shields.io/travis/Harmouch101/pydist2.svg
-        :target: https://travis-ci.com/Harmouch101/pydist2
+.. image:: https://img.shields.io/travis/wiseaidev/pydist2.svg
+        :target: https://app.travis-ci.com/github/wiseaidev/pydist2
 
 .. image:: https://readthedocs.org/projects/pydist2/badge/?version=latest
         :target: https://pydist2.readthedocs.io/en/latest/?badge=latest
@@ -19,8 +19,8 @@ pydist2
 .. image:: https://img.shields.io/pypi/wheel/pydist2.svg
         :target: https://pypi.python.org/pypi/pydist2/
 
-.. image:: https://img.shields.io/github/license/Harmouch101/pydist2.svg
-        :target: https://github.com/Harmouch101/pydist2
+.. image:: https://img.shields.io/github/license/wiseaidev/pydist2.svg
+        :target: https://github.com/wiseaidev/pydist2
 
 
 pydist2 is a python library that provides a set of methods for calculating distances between observations.
