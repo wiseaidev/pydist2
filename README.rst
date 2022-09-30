@@ -47,7 +47,7 @@ Installation
 
 The pydist2 library is available on Pypi_. Thus, you can install the latest available version using *pip*::
 
-   $pip install pydist2
+   pip install pydist2
 
 Supported Python versions
 -------------------------
@@ -61,9 +61,9 @@ This program and the accompanying materials are made available under the terms o
 Progress & Features
 -------------------
 
-- [X] Commit the first code's version.
-- [X] Support the following `list of distances`_. 
-- [X] Display the distance in a matrix form(a combination for each pair of points)::
+- ☑ Commit the first code's version.
+- ☑ Support the following `list of distances`_. 
+- ☑ Display the distance in a matrix form(a combination for each pair of points)::
 
    >>> X = np.array([[100, 100],[0, 100],[100, 0], [500, 400], [300, 600]])
    >>> pdist1(X,matrix=True) # by default, metric = 'euclidean'
@@ -80,19 +80,20 @@ Progress & Features
 
 where the first column represents the distance between each pair of observations. for instance, the euclidean distance between (100. , 100.) and ( 0. , 100.) is 100.
 
-- [X] Support numpy arrays of the same size only.
+- ☑ Support numpy arrays of the same size only.
 
 Todo list
 ---------
 
-- [ ] Re-validate the correctness of the distances equations.
-- [ ] Performance tests & vectorization.
-- [ ] Adding new distances.
-- [ ] Adding a squared form of the distance.
-- [ ] Support tuples and list.
-- [ ] Write more test cases.
-- [ ] Handling Exceptions.
-- [ ] Restructure the docs.
+- ☐ Re-validate the correctness of the distances equations.
+- ☐ Performance tests & vectorization.
+- ☐ Adding new distances.
+- ☐ Adding a squared form of the distance.
+- ☐ Support tuples and list.
+- ☐ Remove numpy from dependencies.
+- ☐ Write more test cases.
+- ☐ Handling Exceptions.
+- ☐ Restructure the docs.
 
 .. _MIT License: https://opensource.org/licenses/MIT
 .. _Pypi: https://pypi.org/project/pydist2/
