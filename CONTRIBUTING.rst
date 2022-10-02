@@ -68,7 +68,7 @@ Ready to contribute? Here's how to set up `pydist2` for local development.
 
     $ mkvirtualenv pydist2
     $ cd pydist2/
-    $ python setup.py develop
+    $ python -m pip install -e ".[dev]"
 
 4. Create a branch for local development::
 
@@ -80,7 +80,7 @@ Ready to contribute? Here's how to set up `pydist2` for local development.
    tests, including testing other Python versions with tox::
 
     $ flake8 pydist2 tests
-    $ python setup.py test or pytest
+    $ python -m pip install -e ".[test]"
     $ tox
 
    To get flake8 and tox, just pip install them into your virtualenv.
