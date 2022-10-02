@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling>=1.8.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pydist2"
+dynamic = ["version"]
+description = "pydist2 is a library that provides a set of methods for calculating distances between observations."
+readme = "README.rst"
+license = "MIT"
+requires-python = ">=3.7<4"
+authors = [
+    { name = "Mahmoud Harmouch", email = "mahmoudddharmouchhh@gmail.com" },
+]
+keywords = [
+    "pydist2",
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+]
+dependencies = [
+	"numpy>=1.18.1",
+]
+
+[project.optional-dependencies]
+dev = [
+	"pip==19.2.3",
+	"numpy==1.18.1",
+	"bump2version==0.5.11",
+	"wheel==0.33.6",
+	"watchdog==0.9.0",
+	"flake8==3.7.8",
+	"tox==3.14.0",
+	"Sphinx==1.8.5",
+	"sphinx_rtd_theme",
+	"twine==1.14.0",
+	"pytest==4.6.5",
+	"pytest-runner==5.1",
+	"build==0.8.0",
+]
+test = [
+    "pytest",
+] 
+
+[project.urls]
+Homepage = "https://github.com/wiseaidev/pydist2"
+
+[tool.hatch.version]
+path = "pydist2/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/pydist2",
+]
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "/pydist2",
+]
